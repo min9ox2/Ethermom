@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Ethermom </title>
+  <script src="dependencies/jquery-3.1.1.min.js"></script>
+  <script src="popup.js"></script>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+  <link rel="stylesheet" type="text/css" href="dependencies/bootstrap/bootstrap.min.css">
+</head>
+<body>
+  <div class="container" style="border: 1px solid black">
+	<div class="row" style="padding-bottom: 15px">
+		<div class="col-xs-6">
+			Time : <span id="time">...</span>
+			<br/>
+			Last Seen : <span id="lastseen">...</span>
+		</div>
+		<div class="col-xs-6" style="text-align: right">
+      <a href="" id="settings">Settings</a> | 
+			<a href="" id="refresh">Refresh</a>
+		</div>
+	</div>
+    <div class="row">
+      <div class="col-xs-5 padding-md">
+        <div class="card" style="border-color: rgb(8, 109, 21)">
+          <div class="card-header" style="background-color: rgb(8, 109, 21)">
+            Reported Hashrate
+          </div>
+          <div class="card-body">
+        		<span id="reported-hash">0</span> MH/s
+          </div>          
+        </div>
+      </div>
+      <div class="col-xs-5 padding-md">
+		<div class="card" style="border-color: rgb(9, 117, 189)">
+			<div class="card-header" style="background-color: rgb(9, 117, 189)">
+				Current Hashrate
+			</div>
+			<div class="card-body">
+				<span id="current-hash">0</span> MH/s
+			</div>          
+		</div>
+      </div>
+      <div class="col-xs-2 padding-md">
+		<div class="card" style="border-color: rgb(82, 76, 1)">
+			<div class="card-header" style="background-color: rgb(82, 76, 1)">
+				Active
+			</div>
+			<div class="card-body">
+				<span id="active-workers">0</span>
+			</div>          
+		</div>
+      </div>
+	</div>
+    <table id ="workers" class="table">
+      <thead>
+        <tr>
+          <th>Worker</th>
+          <th>Reported</th>
+          <th>Current</th>
+          <th>Last seen</th>
+        </tr>        
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

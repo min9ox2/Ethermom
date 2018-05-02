@@ -1,0 +1,72 @@
+<html>
+<head>
+  <title>Settings</title>
+  <script src="dependencies/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="options.js"></script>
+  <link rel="stylesheet" type="text/css" href="dependencies/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="container" style="width: 500px">
+      <div class="row main">
+        <div class="panel-heading">
+          <div class="panel-title text-center">
+            <h1 class="title">Ethermom - Settings</h1>
+            <hr />
+          </div>
+        </div> 
+        <div class="alert alert-success" role="alert" id="saved-alert" style="display:none">
+          <strong>Setting saved!</strong>
+        </div>
+        <div class="main-login main-center">            
+          <div class="form-group">
+            <label for="eth_wallet_addr" class="cols-sm-2 control-label">Ethereum Wallet Address</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" 
+                  name="eth_wallet_addr" id="eth_wallet_addr"  
+                  placeholder="cf2dd530bbb076847ac80b18e9365dfa62602bb3"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="update_interval" class="cols-sm-2 control-label">Autoupdate interval (in minutes)</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" 
+                  name="update_interval" id="update_interval"  
+                  placeholder="Set '0' to disable auto checking"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="notify_lower" class="cols-sm-2 control-label">Notify when hashrate dropped below (MH/s)</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-bell" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" 
+                  name="notify_lower" id="notify_lower"  
+                  placeholder="Notify when hash rate is lower than provided value"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group ">
+            <button id="saveOpts" type="button" class="btn btn-primary btn-lg btn-block login-button">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-success" role="alert" id="saved-alert">
+        <strong>Donations are welcome & appreciated!</strong><br/><hr/>
+        <b>BTC:</b> 1BMQvYUDt6A4pGNEEyBgPhHqQamRsV9BBQ<br/>
+        <b>ETH:</b> 0xbdd84115F3b353A4e05043954b1D8B645B66D03f<br/>
+        <b>BCH:</b> qzqzfyyc04yp0uwmnmft5sutr65gzqk6r5l7vl46er<br/>
+        <b>LTC:</b> MPzASoJiwsnBmvMnyddroMgbo76XHyvvf1
+      </div>
+    </div>
+</body>
+</html>

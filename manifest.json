@@ -1,0 +1,29 @@
+{
+  "name": "Ethermom",
+  "author": "min9ox2",
+  "version": "1.0",
+  "description": "Ethermine.org monitoring extension for chrome",
+  "permissions": [
+    "notifications"
+  ],
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["dependencies/jquery-3.1.1.min.js","background.js"]
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "images/ethermine16.png",
+      "32": "images/ethermine32.png",
+      "48": "images/ethermine48.png",
+      "128": "images/ethermine128.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/ethermine16.png",
+    "32": "images/ethermine32.png",
+    "48": "images/ethermine48.png",
+    "128": "images/ethermine128.png"
+  },
+  "manifest_version": 2
+}
