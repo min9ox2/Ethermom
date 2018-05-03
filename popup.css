@@ -38,3 +38,13 @@
 .padding-md {
     padding: 5px !important;
 }
+
+a.icon-link {
+    text-decoration: none;
+    color: white;
+}
+
+a.icon-link:hover {
+    text-decoration: none;
+    color: white;
+}

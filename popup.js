@@ -10,9 +10,15 @@ $(document).ready(function() {
   $("#settings").click(function() {    
     chrome.runtime.openOptionsPage();
   });
+
+  $(".fa-cog").mouseover(function() {
+    $(".fa-cog").addClass('fa-spin');
+  }).mouseout(function() {
+    $(".fa-cog").removeClass('fa-spin');
+  });
   
   function updateAll() {
-    $("#refresh").text("Updating...");
+    $("#refresh").addClass('fa-spin');
     updateMiner();
     updateWorkers();
   }
@@ -58,7 +64,7 @@ $(document).ready(function() {
           });
         }
 
-        $("#refresh").text("Refresh");
+        $("#refresh").removeClass("fa-spin");
       }
     });
   }

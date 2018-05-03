@@ -20,16 +20,39 @@ function updateBadge() {
         var reportedHash = roundHash(response.data.reportedHashrate);
         chrome.browserAction.setBadgeText({text: reportedHash.toString()});
         if (reportedHash < notifyIfLower) {
-          chrome.notifications.create('', {
-            type: 'basic',
-            iconUrl: 'images/ethermine48.png',
-            title: '[Warning] Hashrate is low',
-            message: 'Total Reported Hashrate is ' + reportedHash + 'MH/s in last update.'
-          }, function(notificationId) {});
+          var lastNotifiedHash = localStorage["last_notified_hash"];
+          var notifyInterval = localStorage["notify_interval"];
+          // if newly updated hash is same as last notified, don't show again
+          if (notifyInterval && notifyInterval > 0) {
+            if (lastNotifiedHash && reportedHash == lastNotifiedHash) {
+              var lastNotifiedTime = localStorage["last_notified_time"];
+              if (lastNotifiedTime) {
+                var now = new Date().getTime();
+                if ((now - lastNotifiedTime) > (notifyInterval * 60000)) {
+                  showNotification(reportedHash);
+                }
+              }
+            } else {
+              showNotification(reportedHash);
+            }
+          } else {
+            showNotification(reportedHash);
+          }          
         }
       }      
     }
   });
+}
+
+function showNotification(reportedHash) {
+  chrome.notifications.create('', {
+    type: 'basic',
+    iconUrl: 'images/ethermine48.png',
+    title: '[Warning] Hashrate is low',
+    message: 'Total Reported Hashrate is ' + reportedHash + 'MH/s in last update.'
+  }, function(notificationId) {});
+  localStorage["last_notified_time"] = new Date().getTime();
+  localStorage["last_notified_hash"] = reportedHash;
 }
 
 function roundHash(longHash) {
