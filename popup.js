@@ -11,10 +11,24 @@ $(document).ready(function() {
     chrome.runtime.openOptionsPage();
   });
 
+  $("#goto-web").click(function() {
+    if (wallet_addr) {
+      chrome.tabs.create({ url: 'https://ethermine.org/miners/' + wallet_addr + '/dashboard' });
+    } else {
+      chrome.runtime.openOptionsPage();
+    }
+  })
+
   $(".fa-cog").mouseover(function() {
     $(".fa-cog").addClass('fa-spin');
   }).mouseout(function() {
     $(".fa-cog").removeClass('fa-spin');
+  });
+
+  $(".fa-globe").mouseover(function() {
+    $(".fa-globe").addClass('fa-spin');
+  }).mouseout(function() {
+    $(".fa-globe").removeClass('fa-spin');
   });
   
   function updateAll() {
@@ -54,11 +68,15 @@ $(document).ready(function() {
         if (response && response.status=='OK') {
           var workers = response.data;
           workers.forEach(element => {
+            var lastSeen = '';
+            if (element.lastSeen) {
+              lastSeen = getTimeDiff(element.lastSeen) + 'ago';
+            }
             var workerItem = '<tr>'+
                                 '<td>'+ element.worker +'</td>'+
                                 '<td>'+ roundHash(element.reportedHashrate) +' MH/s</td>'+
                                 '<td>'+ roundHash(element.currentHashrate) +' MH/s</td>'+
-                                '<td>'+ getTimeDiff(element.lastSeen) + 'ago' +'</td>'+
+                                '<td>'+ lastSeen +'</td>'+
                               '</tr>';
             $('#workers tr:last').after(workerItem);
           });
