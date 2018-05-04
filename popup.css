@@ -39,12 +39,11 @@
     padding: 5px !important;
 }
 
-a.icon-link {
+a.icon-link, a.icon-link:hover, a:link, a:focus, a:hover {
     text-decoration: none;
     color: white;
 }
 
-a.icon-link:hover {
-    text-decoration: none;
-    color: white;
+.ver_inf {
+    font-size: x-small;
 }

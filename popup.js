@@ -44,7 +44,7 @@ $(document).ready(function() {
       success: (response) => {
         if (response && response.status=='OK') {
           // set Time
-          $("#time").text(convertToDate(response.data.time));
+          // $("#time").text(convertToDate(response.data.time));
           // set last seen
           $("#lastseen").text(convertToDate(response.data.lastSeen));
           // set reported hash rate
