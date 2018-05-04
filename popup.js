@@ -32,7 +32,7 @@ $(document).ready(function() {
   });
   
   function updateAll() {
-    $("#refresh").addClass('fa-spin');
+    $(".fa-refresh").addClass('fa-spin');
     updateMiner();
     updateWorkers();
   }
@@ -82,7 +82,7 @@ $(document).ready(function() {
           });
         }
 
-        $("#refresh").removeClass("fa-spin");
+        $(".fa-refresh").removeClass("fa-spin");
       }
     });
   }
