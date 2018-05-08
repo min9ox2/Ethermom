@@ -1,0 +1,39 @@
+#enabled
+# 0 = monitoring is off (default)
+# 1 = monitoring is on
+enabled=1
+
+#wallet address
+wallet=cf2dd530bbb076847ac80b18e9365dfa62602bb3
+
+#mode
+# 1 = doesn't specify which worker. notify when total reported hashrate is dropped (default)
+# 2 = notify on individual workers reported hashrate dropped
+# 3 = mix mode for performance. first check reported rate and then check workers
+mode=3
+
+# only works when mode == 1 or 3.
+expectedHash=590
+
+#workers
+# only works when mode == 2 or 3.
+# add workers by this format. duplicate names not allowed.
+# workers.{name}.expectedHash
+workers.miner1.expectedHash=145
+workers.miner2.expectedHash=145
+workers.miner3.expectedHash=145
+workers.miner4.expectedHash=145
+
+#telegram
+# 0 = alert off (default)
+# 1 = alert on
+telegram.enabled=0
+telegram.apiKey=
+telegram.chatId=
+
+#ifttt webhook
+# 0 = webhook off (default)
+# 1 = webhook on
+ifttt.webhook.enabled=1
+ifttt.webhook.apiKey=
+ifttt.webhook.eventName=
